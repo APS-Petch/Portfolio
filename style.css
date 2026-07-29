@@ -21,6 +21,32 @@
 }
 
 /* ==========================================
+   LIGHT THEME
+========================================== */
+
+body.light{
+
+    --bg-color:#F8FAFC;
+
+    --bg-secondary:#FFFFFF;
+
+    --card-color:#FFFFFF;
+
+
+    --primary:#0284C7;
+
+    --primary-dark:#0369A1;
+
+
+    --text:#0F172A;
+
+    --text-secondary:#475569;
+
+
+    --border:#CBD5E1;
+
+}
+/* ==========================================
    RESET
 ========================================== */
 *{
@@ -134,23 +160,15 @@ body{
 /* ---------- Logo ---------- */
 
 .logo{
-    text-decoration:none;
-
-    color:var(--text);
-
-    font-size:2rem;
-    font-weight:700;
-    letter-spacing:1px;
-}
-
-.logo{
 
     text-decoration:none;
 
     color:var(--text);
 
     font-size:2rem;
+
     font-weight:700;
+
     letter-spacing:1px;
 
     transition:.3s;
@@ -160,6 +178,156 @@ body{
 .logo:hover{
 
     color:var(--primary);
+
+}
+
+/* ---------- Theme Button ---------- */
+
+/* ==========================================
+        THEME SWITCH
+========================================== */
+
+
+.theme-switch{
+
+    position:relative;
+
+    width:65px;
+
+    height:32px;
+
+    display:inline-block;
+
+    cursor:pointer;
+
+}
+
+
+.theme-switch input{
+
+    display:none;
+
+}
+
+
+
+/* ตัว Switch */
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#1E293B;
+
+    border-radius:50px;
+
+    border:1px solid rgba(56,189,248,.3);
+
+    transition:.4s;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+
+
+/* ลูกกลม */
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:26px;
+
+    height:26px;
+
+    left:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.4s;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.3);
+
+}
+
+
+
+/* Moon */
+
+.moon-icon{
+
+    position:absolute;
+
+    right:8px;
+
+    color:#38BDF8;
+
+    font-size:14px;
+
+}
+
+
+
+/* Sun */
+
+.sun-icon{
+
+    position:absolute;
+
+    left:8px;
+
+    color:#FACC15;
+
+    font-size:14px;
+
+    opacity:0;
+
+}
+
+
+
+/* Light Mode เปิด */
+
+.theme-switch input:checked + .slider{
+
+    background:#E0F2FE;
+
+}
+
+
+
+/* เลื่อนปุ่ม */
+
+.theme-switch input:checked + .slider::before{
+
+    transform:translateX(32px);
+
+}
+
+
+
+/* เปลี่ยน Icon */
+
+.theme-switch input:checked + .slider .moon-icon{
+
+    opacity:0;
+
+}
+
+
+.theme-switch input:checked + .slider .sun-icon{
+
+    opacity:1;
 
 }
 
@@ -193,6 +361,7 @@ body{
 
 }
 
+
 /* เส้นใต้เมนู */
 
 .nav-links a::after{
@@ -219,13 +388,14 @@ body{
 
 }
 
+
 /* ==========================================
    HERO SECTION
 ========================================== */
 
 #hero{
 
-    min-height:100vh;
+    min-height:100svh;
 
     display:flex;
 
@@ -356,8 +526,9 @@ body{
 
 .profile-card{
 
-    width:360px;
-    height:470px;
+    width:min(360px,90vw);
+
+    height:auto;
 
     border-radius:28px;
 
@@ -392,19 +563,21 @@ body{
     display:block;
 
     width:100%;
-    height:410px;
+
+    aspect-ratio:360 / 410;
 
     object-fit:cover;
-    object-position:center top;
+
+    object-position:center 20%;
 
 }
 
 .profile-info{
 
     margin:0;
-    padding:0;
 
-    height:60px;
+    min-height:60px;
+    padding:10px;
 
     display:flex;
 
@@ -426,6 +599,7 @@ body{
     letter-spacing:1px;
 
 }
+
 
 /* ==========================================
    WAVE ANIMATION
@@ -588,18 +762,6 @@ body{
 
 
 
-/* Mobile */
-
-@media(max-width:768px){
-
-    .about-container{
-
-        flex-direction:column;
-
-        gap:40px;
-
-    }
-}
 
 /* ======================
         SKILLS
@@ -752,13 +914,7 @@ body{
 
 }
 
-
-
-
-
 /* Tags */
-
-
 .skill-tags {
 
 
@@ -772,8 +928,6 @@ body{
 
 
 }
-
-
 
 .skill-tags span {
 
@@ -794,12 +948,6 @@ body{
 
 
 }
-
-
-
-
-
-
 
 /* ======================
         SOFT SKILLS
@@ -922,6 +1070,7 @@ body{
     margin-bottom:15px;
 
 }
+
 
 .section-subtitle{
 
@@ -1131,22 +1280,6 @@ body{
 
 }
 
-@media (max-width:900px){
-
-    .projects-container{
-        grid-template-columns:1fr;
-    }
-
-    .featured-project{
-        grid-column:auto;
-    }
-
-    .featured-project img{
-        height:260px;
-    }
-
-}
-
 /* ==========================================
    CERTIFICATES
 ========================================== */
@@ -1302,6 +1435,30 @@ body{
     margin:70px auto 0;
 
     padding-left:40px;
+
+}
+
+@media(max-width:600px){
+
+.timeline{
+
+    padding-left:25px;
+
+}
+
+
+.timeline-content{
+
+    padding:20px;
+
+}
+
+
+.timeline-content h3{
+
+    font-size:1.2rem;
+
+}
 
 }
 
@@ -1545,26 +1702,6 @@ body{
 
 }
 
-@media(max-width:900px){
-
-    .contact-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-}
-
-@media(max-width:600px){
-
-    .contact-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
 /* ==========================================
    AURORA BACKGROUND
 ========================================== */
@@ -1661,3 +1798,828 @@ body::after{
 
 }
 
+/* ==========================================
+   LIGHT MODE AURORA
+========================================== */
+
+
+body.light::before{
+
+    opacity:.08;
+
+}
+
+
+body.light::after{
+
+    opacity:.05;
+
+}
+
+/* ==========================================
+   LIGHT MODE COMPONENT FIX
+========================================== */
+
+
+/* ---------- Navbar ---------- */
+
+body.light .navbar{
+
+    background:rgba(255,255,255,.75);
+
+    border-bottom:1px solid rgba(2,132,199,.25);
+
+    box-shadow:
+        0 8px 30px rgba(15,23,42,.08);
+
+}
+
+
+body.light .navbar::after{
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(2,132,199,.6),
+        transparent
+    );
+
+}
+
+
+
+/* ---------- Navigation Text ---------- */
+
+
+body.light .nav-links a{
+
+    color:#475569;
+
+}
+
+
+body.light .nav-links a:hover{
+
+    color:#0284C7;
+
+}
+
+
+
+/* ---------- Cards ---------- */
+
+
+body.light .skill-card,
+body.light .soft-card,
+body.light .project-card,
+body.light .certificate-card,
+body.light .timeline-content,
+body.light .contact-card,
+body.light .profile-card{
+
+
+    background:rgba(255,255,255,.75);
+
+    border-color:rgba(2,132,199,.25);
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.08);
+
+}
+
+
+
+/* ---------- Card Text ---------- */
+
+
+body.light .skill-card h4,
+body.light .project-content h3,
+body.light .certificate-content h3,
+body.light .timeline-content h3,
+body.light .contact-card h3{
+
+    color:#0F172A;
+
+}
+
+
+body.light .skill-card p,
+body.light .project-content p,
+body.light .certificate-content p,
+body.light .timeline-content p{
+
+    color:#475569;
+
+}
+
+
+
+/* ---------- Tags ---------- */
+
+
+body.light .skill-tags span,
+body.light .project-tech span{
+
+    background:rgba(2,132,199,.08);
+
+    border-color:rgba(2,132,199,.25);
+
+    color:#0369A1;
+
+}
+
+
+
+/* ---------- Soft Skill Text ---------- */
+
+
+body.light .soft-card span{
+
+    color:#334155;
+
+}
+
+
+
+/* ---------- Profile Footer ---------- */
+
+
+body.light .profile-info{
+
+    background:rgba(2,132,199,.05);
+
+}
+
+
+
+/* ---------- Button ---------- */
+
+
+body.light .btn-primary,
+body.light .btn-secondary{
+
+    background:#0284C7;
+
+    color:white;
+
+}
+
+
+
+/* ---------- Contact ---------- */
+
+
+body.light #contact{
+
+    background:rgba(2,132,199,.03);
+
+}
+
+
+
+/* ---------- Mobile Menu ---------- */
+
+
+body.light .nav-links{
+
+    background:rgba(255,255,255,.95);
+
+    border-bottom:
+    1px solid rgba(2,132,199,.25);
+
+}
+
+/* =========================
+        HAMBURGER DEFAULT
+========================= */
+
+.hamburger{
+
+    display:none;
+
+    width:35px;
+    height:30px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    z-index:1001;
+
+    flex-shrink:0;
+
+}
+
+
+.hamburger span{
+
+    width:100%;
+
+    height:3px;
+
+    background:var(--primary);
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+
+
+/* ---------- Scroll Navbar ---------- */
+
+
+body.light .navbar.scrolled{
+
+    background:rgba(255,255,255,.92);
+
+    box-shadow:
+        0 10px 40px rgba(15,23,42,.15);
+
+}
+
+
+
+/* ---------- Hamburger ---------- */
+
+
+body.light .hamburger span{
+
+    background:#0284C7;
+
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+
+/* ================= TABLET ================= */
+
+@media(max-width:1024px){
+
+    /* Hero */
+
+    #hero{
+
+        gap:40px;
+
+        padding:100px 5% 50px;
+
+    }
+
+
+    .hero-content h1{
+
+        font-size:3.2rem;
+
+    }
+
+
+    /* Skills */
+
+    .technical-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    /* Projects */
+
+    .projects-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .featured-project{
+
+        grid-column:auto;
+
+    }
+
+
+    .featured-project img{
+
+        height:260px;
+
+    }
+
+
+    /* Certificate */
+
+    .certificate-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    /* Contact */
+
+    .contact-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+
+    /* ================================
+            MOBILE NAVBAR
+    ================================ */
+
+
+    .navbar{
+
+        height:70px;
+
+        padding:0 5%;
+
+        gap:15px;
+
+    }
+
+
+    .logo{
+
+        font-size:1.5rem;
+
+    }
+
+
+    /* ================================
+            HAMBURGER BUTTON
+    ================================ */
+
+
+    .hamburger{
+
+        display:flex;
+
+    }
+
+
+
+    .hamburger span{
+
+        width:100%;
+
+        height:3px;
+
+        background:var(--primary);
+
+        border-radius:20px;
+
+        transition:.35s ease;
+
+    }
+
+
+    /* Animation ตอนเปิด */
+
+    .hamburger.active span:nth-child(1){
+
+        transform:translateY(13px) rotate(45deg);
+
+    }
+
+
+    .hamburger.active span:nth-child(2){
+
+        opacity:0;
+
+    }
+
+
+    .hamburger.active span:nth-child(3){
+
+        transform:translateY(-13px) rotate(-45deg);
+
+    }
+
+
+
+    /* ================================
+        MOBILE MENU
+    ================================ */
+
+
+    .nav-links{
+
+        position:absolute;
+
+        top:70px;
+
+        left:0;
+
+        width:100%;
+
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+
+        gap:25px;
+
+
+        padding:30px 0;
+
+
+        background:rgba(11,17,32,.95);
+
+        backdrop-filter:blur(20px);
+
+        border-bottom:
+        1px solid rgba(56,189,248,.25);
+
+
+        transform:translateY(-120%);
+
+        opacity:0;
+
+        pointer-events:none;
+
+
+        transition:.4s ease;
+
+
+    }
+
+
+
+    /* เปิดเมนู */
+
+    .nav-links.active{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+        pointer-events:auto;
+
+    }
+
+
+
+    .nav-links a{
+
+        font-size:1rem;
+
+    }
+
+    /* ==========================================
+            NAVBAR SCROLL EFFECT
+    ========================================== */
+
+    .navbar.scrolled{
+
+        background:rgba(11,17,32,.92);
+
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
+
+        box-shadow:
+            0 10px 40px rgba(0,0,0,.35);
+
+        border-bottom:
+            1px solid rgba(56,189,248,.35);
+
+    }
+
+
+    /* Animation ตอนเปลี่ยน */
+
+    .navbar{
+
+        transition:
+            background .35s ease,
+            box-shadow .35s ease,
+            height .35s ease;
+
+    }
+
+
+    .navbar.scrolled .logo{
+
+        color:var(--primary);
+
+    }
+
+
+    /* ลดความสูง Navbar ตอน Scroll */
+
+    .navbar.scrolled{
+
+        height:70px;
+
+    }
+
+
+
+    /* Hero */
+
+
+    #hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        justify-content:center;
+
+        gap:40px;
+
+        padding:100px 5% 50px;
+
+    }
+
+
+    .hero-greeting{
+
+        font-size:1.5rem;
+
+    }
+
+
+    .hero-content h1{
+
+        font-size:2.5rem;
+
+    }
+
+
+    .hero-description{
+
+        font-size:1rem;
+
+    }
+
+
+    .hero-buttons{
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+
+    .hero-image{
+
+        justify-content:center;
+
+    }
+
+
+
+    /* Profile */
+
+
+    .profile-card{
+
+        width:min(360px,90vw);
+
+    }
+
+
+
+    /* About */
+
+
+    .about{
+
+        padding:70px 5%;
+
+    }
+
+
+    .about-container{
+
+        flex-direction:column;
+
+        gap:40px;
+
+    }
+
+
+    .about-title h2{
+
+        font-size:2rem;
+
+    }
+
+
+    .about-heading,
+    .about-left h3,
+    .about-right h3{
+
+        font-size:25px;
+
+    }
+
+
+
+    /* Skills */
+
+
+    .skills{
+
+        padding:70px 5%;
+
+    }
+
+
+    .skills-title h2{
+
+        font-size:2rem;
+
+    }
+
+
+    .sub-title{
+
+        font-size:25px;
+
+    }
+
+
+    .technical-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    /* Projects */
+
+
+    #projects{
+
+        padding:80px 5%;
+
+    }
+
+
+    .section-title{
+
+        font-size:2rem;
+
+    }
+
+
+    .project-card img{
+
+        height:220px;
+
+    }
+
+
+    .featured-project img{
+
+        height:220px;
+
+    }
+
+
+
+    /* Certificate */
+
+
+    .certificate-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    /* Timeline */
+
+
+    .timeline{
+
+        padding-left:25px;
+
+    }
+
+
+    .timeline-content{
+
+        padding:20px;
+
+    }
+
+
+    .timeline-content h3{
+
+        font-size:1.2rem;
+
+    }
+
+    /* Contact */
+
+
+    #contact{
+
+        padding:70px 5% 30px;
+
+    }
+
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .contact-container h2{
+
+        font-size:2rem;
+
+    }
+
+
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
+
+@media(max-width:480px){
+
+
+    .nav-links{
+
+        gap:8px;
+
+    }
+
+
+    .nav-links a{
+
+        font-size:.7rem;
+
+    }
+
+
+    .hero-content h1{
+
+        font-size:2rem;
+
+    }
+
+
+    .btn-primary,
+    .btn-secondary{
+
+        width:100%;
+
+        padding:12px 20px;
+
+    }
+
+
+    .profile-card{
+
+        border-radius:20px;
+
+    }
+
+
+    .skill-card{
+
+        padding:25px 20px;
+
+    }
+
+
+    .project-content{
+
+        padding:20px;
+
+    }
+
+
+}
