@@ -26,26 +26,24 @@
 
 body.light{
 
-    --bg-color:#F8FAFC;
+    --bg-color:#F4F7FB;
 
-    --bg-secondary:#FFFFFF;
+    --bg-secondary:#EEF4FA;
 
-    --card-color:#FFFFFF;
-
+    --card-color:#FCFDFE;
 
     --primary:#0284C7;
 
     --primary-dark:#0369A1;
 
+    --text:#1E293B;
 
-    --text:#0F172A;
+    --text-secondary:#64748B;
 
-    --text-secondary:#475569;
-
-
-    --border:#CBD5E1;
+    --border:#D7E2EC;
 
 }
+
 /* ==========================================
    RESET
 ========================================== */
@@ -1805,14 +1803,43 @@ body::after{
 
 body.light::before{
 
-    opacity:.08;
+    opacity:.05;
 
 }
 
 
 body.light::after{
 
-    opacity:.05;
+    opacity:.035;
+
+}
+
+body.light{
+
+    background-image:
+
+        linear-gradient(
+            rgba(15,23,42,.03) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(15,23,42,.03) 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle at top left,
+            rgba(56,189,248,.06),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            rgba(99,102,241,.05),
+            transparent 40%
+        );
 
 }
 
@@ -1825,12 +1852,11 @@ body.light::after{
 
 body.light .navbar{
 
-    background:rgba(255,255,255,.75);
+    background:rgba(248,250,252,.82);
 
-    border-bottom:1px solid rgba(2,132,199,.25);
+    backdrop-filter:blur(20px);
 
-    box-shadow:
-        0 8px 30px rgba(15,23,42,.08);
+    border-bottom:1px solid rgba(148,163,184,.18);
 
 }
 
@@ -1878,12 +1904,12 @@ body.light .contact-card,
 body.light .profile-card{
 
 
-    background:rgba(255,255,255,.75);
+    background:rgba(248,250,252,.78);
 
-    border-color:rgba(2,132,199,.25);
+    border:1px solid rgba(148,163,184,.15);
 
     box-shadow:
-        0 10px 30px rgba(15,23,42,.08);
+        0 15px 35px rgba(15,23,42,.08);
 
 }
 
@@ -1958,9 +1984,19 @@ body.light .profile-info{
 body.light .btn-primary,
 body.light .btn-secondary{
 
-    background:#0284C7;
+    background:linear-gradient(
+    135deg,
+    #38BDF8,
+    #3B82F6
+    );
 
-    color:white;
+}
+
+body.light .btn-primary:hover,
+body.light .btn-secondary:hover{
+
+    box-shadow:
+        0 12px 28px rgba(56,189,248,.28);
 
 }
 
@@ -1971,7 +2007,7 @@ body.light .btn-secondary{
 
 body.light #contact{
 
-    background:rgba(2,132,199,.03);
+    background:#EEF5FB;
 
 }
 
